@@ -11,6 +11,7 @@ public class Main {
         List<Position> xPosition = new ArrayList<>();
         List<Position> oPosition = new ArrayList<>();
         xPosition.add(new Position(0, 0));
+        xPosition.add(new Position(14, 14));
         oPosition.add(new Position(3, 3));
 
         Board board = new Board(xPosition, oPosition, true);
