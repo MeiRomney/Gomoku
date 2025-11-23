@@ -1,20 +1,30 @@
 package org.example;
 
+import org.example.database.DbInit;
 import org.example.model.Board;
+import org.example.model.GamePhase;
+import org.example.model.GameState;
 import org.example.model.Position;
+import org.example.service.GameService;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<Position> xPosition = new ArrayList<>();
-        List<Position> oPosition = new ArrayList<>();
-        xPosition.add(new Position(0, 0));
-        xPosition.add(new Position(14, 14));
-        oPosition.add(new Position(3, 3));
+        DbInit.initDb();
+        // Create initial Game state
+        GameState state = new GameState();
+        state.setGamePhase(GamePhase.EDIT);
 
-        Board board = new Board(xPosition, oPosition, true);
-        System.out.println(board);
+        // Create and run the engine
+        GameService gameService = new GameService(state);
+
+        // Start the game loop (based on commands and phases)
+        gameService.run();
+        DbInit.stopWebServer();
+
+        // When run() returns, the game is fully finished
+        System.out.println("Game terminated.");
     }
 }

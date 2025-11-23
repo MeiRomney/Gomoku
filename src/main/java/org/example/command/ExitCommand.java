@@ -8,7 +8,7 @@ import java.util.regex.Matcher;
 
 public class ExitCommand extends Command{
     public ExitCommand() {
-        super("Exit", "^EXIT$", EnumSet.allOf(GamePhase.class));
+        super("EXIT", "^EXIT$", EnumSet.allOf(GamePhase.class));
     }
 
     @Override

@@ -8,7 +8,6 @@ import org.example.model.Position;
 import org.example.service.BoardService;
 
 import java.sql.*;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -26,7 +25,7 @@ public class ListCommand extends Command {
     private static final Pattern PATTERN = Pattern.compile(REGEX, Pattern.CASE_INSENSITIVE);
 
     public ListCommand() {
-        super("List", REGEX, ALLOWED);
+        super("LIST", REGEX, ALLOWED);
     }
 
     @Override
@@ -49,7 +48,7 @@ public class ListCommand extends Command {
                 ResultSet rs = stmt.executeQuery(query)) {
 
                 boolean foundAny = false;
-                while(rs.next()) {"
+                while(rs.next()) {
                     foundAny = true;
                     int id = rs.getInt("ID");
                     String name = rs.getString("NAME");

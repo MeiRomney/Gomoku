@@ -26,7 +26,7 @@ public class LoadCommand extends Command {
     );
 
     public LoadCommand() {
-        super("Load", REGEX, ALLOWED);
+        super("LOAD", REGEX, ALLOWED);
     }
 
     @Override
@@ -64,11 +64,13 @@ public class LoadCommand extends Command {
 
             for(int r = 0; r < 15; r++) {
                 for(int c = 0; c < 15; c++) {
-                    char ch = table.charAt(r * 15 + c);
+                    int index = r * 15 + c;
+                    char ch = (index < table.length()) ? table.charAt(index) : '.';
+                    //char ch = table.charAt(r * 15 + c);
                     switch(ch) {
-                        case 'X': xPositions.add(new Position(r, c));
-                        case 'O': oPositions.add(new Position(r, c));
-                        default: {};
+                        case 'X': xPositions.add(new Position(r, c)); break;
+                        case 'O': oPositions.add(new Position(r, c)); break;
+                        default: break;
                     }
                 }
             }
