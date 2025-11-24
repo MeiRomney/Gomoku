@@ -12,6 +12,9 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Reset board
+ */
 public class ResetCommand extends Command {
 
     private static final String REGEX = "^RESET$";

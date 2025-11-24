@@ -14,6 +14,9 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * List games from database
+ */
 public class ListCommand extends Command {
     private static final String REGEX = "^LIST(?:\\s+(\\d+))?$";
 

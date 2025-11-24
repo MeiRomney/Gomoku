@@ -3,6 +3,9 @@ package org.example.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * O player
+ */
 public class OPlayer implements Players{
     public List<Position> positions;
 

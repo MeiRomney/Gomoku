@@ -10,6 +10,9 @@ import org.example.service.GameService;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Main class
+ */
 public class Main {
     public static void main(String[] args) {
         DbInit.initDb();

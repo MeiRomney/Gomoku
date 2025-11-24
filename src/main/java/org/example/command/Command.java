@@ -8,6 +8,9 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Create abstract class for commands
+ */
 public abstract class Command {
     private final Pattern pattern;
     private final String name;

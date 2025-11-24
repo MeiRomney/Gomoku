@@ -2,6 +2,9 @@ package org.example.model;
 
 import java.util.Objects;
 
+/**
+ * Position of each token
+ */
 public class Position {
     private int row;
     private int column;

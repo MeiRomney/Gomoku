@@ -8,6 +8,9 @@ import org.example.model.GameState;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Game service
+ */
 public class GameService implements Runnable {
     private final Scanner scanner = new Scanner(System.in);
     private final GameState state;
@@ -22,27 +25,34 @@ public class GameService implements Runnable {
     public void run() {
         System.out.println("=== Gomoku Game Service ===");
         System.out.println("Current phase: " + state.getGamePhase());
-
-        while(!state.isExitRequested()) {
+        while (true) {
             showPossibleCommands();
 
+            if (state.isExitRequested()) {
+                System.out.println("=== Game terminated ===");
+                break;
+            }
+
             System.out.print("> ");
+            if(!scanner.hasNextLine()) break;
             String input = scanner.nextLine().trim();
 
             Command matching = findMatchingCommand(input);
 
-            if(matching == null) {
+            if (matching == null) {
                 System.out.println("Invalid command or not allowed in this phase. Try again.");
                 continue;
             }
 
             matching.apply(state, matching.match(input));
-
             autoDetectEndOfGame();
         }
         System.out.println("=== Game terminated ===");
     }
 
+    /**
+     * Show all the possible commands for the phase the user is in
+     */
     private void showPossibleCommands() {
         System.out.println();
         System.out.println("Phase: " + state.getGamePhase());
@@ -53,6 +63,11 @@ public class GameService implements Runnable {
                 .forEach(cmd -> System.out.println(" - " + cmd.getName()));
     }
 
+    /**
+     * Check for the command the user inputs
+     * @param input
+     * @return the command
+     */
     private Command findMatchingCommand(String input) {
         for(Command cmd : commands) {
             if(cmd.isApplicableInPhase(state.getGamePhase()) && cmd.match(input) != null) {
@@ -62,6 +77,9 @@ public class GameService implements Runnable {
         return null;
     }
 
+    /**
+     * Detect if the game is over
+     */
     private void autoDetectEndOfGame() {
         if(state.getGamePhase() != GamePhase.PLAYING) return;
         if(state.getBoardService() == null) return;

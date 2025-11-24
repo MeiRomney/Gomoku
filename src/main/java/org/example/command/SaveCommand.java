@@ -15,6 +15,9 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Command to save the board after playing
+ */
 public class SaveCommand extends Command {
 
     private static final String REGEX = "^SAVE(?:\\s+(\\S+))?$";

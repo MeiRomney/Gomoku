@@ -7,10 +7,16 @@ import java.util.List;
 import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
 
+/**
+ * Class for registering commands
+ */
 public class CommandRegistry {
 
     private final List<Command> commands = new ArrayList<>();
 
+    /**
+     * Constructors
+     */
     public CommandRegistry() {
         // Global commands
         commands.add(new ExitCommand());
@@ -42,6 +48,11 @@ public class CommandRegistry {
         return commands;
     }
 
+    /**
+     * Get allowed commands for any specific phase
+     * @param phase
+     * @return commands
+     */
     public List<Command> getCommandsForPhase(GamePhase phase) {
         List<Command> result = new ArrayList<>();
         for(Command command : commands) {
@@ -52,6 +63,12 @@ public class CommandRegistry {
         return result;
     }
 
+    /**
+     * Finding commands that match input of the user
+     * @param input
+     * @param phase
+     * @return commands
+     */
     public MatchResult findMatchingCommand(String input, GamePhase phase) {
         for(Command command : commands) {
             if(!command.isApplicableInPhase(phase)) continue;

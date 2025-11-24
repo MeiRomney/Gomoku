@@ -10,6 +10,9 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
+/**
+ * Create a UI for the game
+ */
 public class PlayOnTerminal {
     private static final Logger logger = Logger.getLogger(PlayOnTerminal.class.getName());
 
@@ -29,6 +32,10 @@ public class PlayOnTerminal {
         DbInit.stopWebServer();
     }
 
+    /**
+     * Ask if the player wants to load game from database
+     * @return true or false
+     */
     private boolean questionForLoading() {
         System.out.println("Do you want to load a saved game from the database? ");
         char answer = ' ';
@@ -48,6 +55,9 @@ public class PlayOnTerminal {
         return true;
     }
 
+    /**
+     * Load a game
+     */
     private void loadAGame() {
         String queryAll = "SELECT * FROM SavedGameGomoku ORDER BY ID;";
         String queryOne = "SELECT NAME, TABLEDESCRIPTION, IS_X_TURN, IS_HUMAN_PLAYS_X FROM SavedGameGomoku WHERE ID = ?;";
@@ -107,6 +117,9 @@ public class PlayOnTerminal {
         }
     }
 
+    /**
+     * Read which side the user is choosing
+     */
     private void readInSide() {
         System.out.println("Do you want to play as X or O? exit: q");
         while(true) {
@@ -128,6 +141,9 @@ public class PlayOnTerminal {
         }
     }
 
+    /**
+     * Edit empty board
+     */
     private void editing() {
         List<Position> xPositions = new ArrayList<>();
         List<Position> oPositions = new ArrayList<>();
@@ -136,12 +152,18 @@ public class PlayOnTerminal {
         state.setHumanPlaysX(true);
     }
 
+    /**
+     * Playing the game
+     */
     private void playing() {
         System.out.println("Starting board: \n" + state.getBoardService().getBoard());
         if(state.isHumanPlaysX()) playWithX();
         else playWithO();
     }
 
+    /**
+     * User plays with X
+     */
     private void playWithX() {
         while(true) {
             BoardService bs = state.getBoardService();
@@ -194,6 +216,9 @@ public class PlayOnTerminal {
         }
     }
 
+    /**
+     * User plays with O
+     */
     private void playWithO() {
         while(true) {
             BoardService bs = state.getBoardService();
@@ -246,6 +271,9 @@ public class PlayOnTerminal {
         }
     }
 
+    /**
+     * Save the game after playing if the user wants
+     */
     private void saveThePlayedGame() {
         System.out.print("Save game? (enter name to save or leave blank to skip): ");
         String name = scanner.nextLine();
@@ -282,6 +310,9 @@ public class PlayOnTerminal {
         }
     }
 
+    /**
+     * run the UI
+     */
     public static void main(String[] args) {
         new PlayOnTerminal().run();
     }

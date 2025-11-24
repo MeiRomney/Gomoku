@@ -2,6 +2,9 @@ package org.example.model;
 
 import org.example.service.BoardService;
 
+/**
+ * State of the game in each phase
+ */
 public class GameState {
     private GamePhase gamePhase = GamePhase.EDIT;
     private BoardService boardService;

@@ -10,6 +10,9 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Machine making moves
+ */
 public class MachineMoveCommand extends Command {
 
     private static final String REGEX = "^MACHINE$";

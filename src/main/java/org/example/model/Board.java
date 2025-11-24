@@ -3,6 +3,9 @@ package org.example.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Creating board
+ */
 public class Board {
     private final List<Position> xPosition;
     private final List<Position> oPosition;

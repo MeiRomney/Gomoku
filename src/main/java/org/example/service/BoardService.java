@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Board service
+ */
 public class BoardService {
     public static final int BOARD_SIZE = 15;
     public static final int WIN_LENGTH = 5;
@@ -20,6 +23,11 @@ public class BoardService {
         return board;
     }
 
+    /**
+     * Handle every token's movement
+     * @param move
+     * @return if the token has been moved
+     */
     public boolean handleMove(Move move) {
         Players player = move.getMover();
         Position position = move.getPosition();
@@ -36,6 +44,11 @@ public class BoardService {
         return true;
     }
 
+    /**
+     * Determine all the possible moves
+     * @param player
+     * @return all the possible moves
+     */
     // Determine possible
     public List<Move> determinePossibleMoves(Players player) {
         List<Move> moves = new ArrayList<>();
@@ -63,6 +76,9 @@ public class BoardService {
         return determinePossibleMoves(new OPlayer(board.getOPosition()));
     }
 
+    /**
+     * Random moves
+     */
     // Random moves
     public void randomXMove() {
         List<Move> moves = determineXPossibleMoves();
@@ -80,6 +96,10 @@ public class BoardService {
         }
     }
 
+    /**
+     * Check winner
+     * @return winner
+     */
     // Check winner
     public boolean xWins() {
         return hasFiveInRow(board.getXPosition());
@@ -90,7 +110,11 @@ public class BoardService {
     }
 
 
-
+    /**
+     * Check for five tokens of the same player in a row
+     * @param positions
+     * @return if there is a five-in-a-row
+     */
     // Helpers
     private boolean hasFiveInRow(List<Position> positions) {
         boolean[][] grid = new boolean[BOARD_SIZE][BOARD_SIZE];
@@ -115,6 +139,15 @@ public class BoardService {
         return false;
     }
 
+    /**
+     * Check the direction of the rows
+     * @param grid
+     * @param r
+     * @param c
+     * @param dr
+     * @param dc
+     * @return the direction
+     */
     private boolean checkDirection(boolean[][] grid, int r, int c, int dr, int dc) {
         for(int i = 1; i < WIN_LENGTH; i++)  {
             int nr = r + dr * i;
@@ -126,6 +159,11 @@ public class BoardService {
         return true;
     }
 
+    /**
+     * Check if tokens are adjacent to other tokens
+     * @param p
+     * @return true or false
+     */
     private boolean isAdjacentToToken(Position p) {
         // Check all X position
         for(Position x : board.getXPosition()) {
@@ -144,6 +182,10 @@ public class BoardService {
         return false;
     }
 
+    /**
+     * Get empty board
+     * @return empty board
+     */
     public static Board getEmptyBoard() {
         return new Board (new ArrayList<>(), new ArrayList<>(), true);
     }

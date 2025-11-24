@@ -9,6 +9,9 @@ import java.util.EnumSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Print data
+ */
 public class PrintCommand extends Command {
 
     private static final String REGEX = "^PRINT$";

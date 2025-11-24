@@ -9,6 +9,9 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Commands to get a new empty start board
+ */
 public class NewStartBoardCommand extends Command {
 
     private static final String REGEX = "^NEW_START_BOARD$";

@@ -14,6 +14,9 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Load class the user wants
+ */
 public class LoadCommand extends Command {
 
     private static final String REGEX = "^LOAD\\s+(\\d+)$";

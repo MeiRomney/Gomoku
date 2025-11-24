@@ -8,6 +8,9 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Command to choose to play as X
+ */
 public class PlayXCommand extends Command {
 
     private static final String REGEX = "^PLAY_X$";

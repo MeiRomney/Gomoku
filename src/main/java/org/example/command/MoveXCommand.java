@@ -8,6 +8,9 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Commands for user to move X
+ */
 public class MoveXCommand extends Command {
 
     private static final String REGEX = "^MOVE_X\\s+([1-15])\\s+([1-15])$";

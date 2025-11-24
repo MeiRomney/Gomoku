@@ -9,6 +9,9 @@ import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+/**
+ * Initializing database
+ */
 public class DbInit {
     static Server webServer;
 
@@ -26,10 +29,16 @@ public class DbInit {
         }
     }
 
+    /**
+     * Get data from memory url
+     */
     public static String getInMemoryUrl() {
         return "jdbc:h2:mem:gomoku;DB_CLOSE_DELAY=-1";
     }
 
+    /**
+     * Initialize database
+     */
     public static void initDb() {
         try {
             initInMemoryDb();
@@ -39,6 +48,9 @@ public class DbInit {
         }
     }
 
+    /**
+     * Stop the database
+     */
     public static void stopWebServer() {
         if(webServer != null) {
             webServer.stop();

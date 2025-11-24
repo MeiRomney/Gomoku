@@ -8,6 +8,9 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Commands for user to move O
+ */
 public class MoveOCommand extends Command {
     private static final String REGEX = "^MOVE_O\\s+([1-15])\\s+([1-15])$";
     private static final Pattern PATTERN = Pattern.compile(REGEX);

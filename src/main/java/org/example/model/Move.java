@@ -2,6 +2,9 @@ package org.example.model;
 
 import java.util.Objects;
 
+/**
+ * Movement of the tokens
+ */
 public class Move {
     private final Players mover;
     private final Position position;

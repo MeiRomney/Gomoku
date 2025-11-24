@@ -6,6 +6,9 @@ import org.example.model.GameState;
 import java.util.EnumSet;
 import java.util.regex.Matcher;
 
+/**
+ * Restart board while keeping database running
+ */
 public class RestartCommand extends Command {
 
     public RestartCommand() {
