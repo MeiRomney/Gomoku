@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
  * Commands for user to move O
  */
 public class MoveOCommand extends Command {
-    private static final String REGEX = "^MOVE_O\\s+([1-15])\\s+([1-15])$";
+    private static final String REGEX = "^MOVE_O\\s+(1[0-5]|[1-9])\\s+(1[0-5]|[1-9])$";
     private static final Pattern PATTERN = Pattern.compile(REGEX);
 
     private static final Set<GamePhase> ALLOWED = Set.of(GamePhase.PLAYING);

@@ -64,9 +64,9 @@ public class SaveCommand extends Command {
         for(int r = 0; r < 15; r++) {
             for(int c = 0; c < 15; c++) {
                 Position p = new Position(r, c);
-                if(board.getXPosition() != null && board.getXPosition().contains(p)) sb.append(p);
-                else if(board.getOPosition() != null && board.getOPosition().contains(p)) sb.append(p);
-                else sb.append(".");
+                if(board.getXPosition() != null && board.getXPosition().contains(p)) sb.append("X");
+                else if(board.getOPosition() != null && board.getOPosition().contains(p)) sb.append("O");
+                else sb.append(" ");
             }
         }
 
